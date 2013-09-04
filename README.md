@@ -1,3 +1,5 @@
-=== VIM configuration...
+### VIM configuration...
 
-... with Vundle as plugin manager and inclination for Ruby\Rail develpment
+... with inclination for Ruby\Rails development.
+
+For plugin management Vundle is used.
