@@ -4,6 +4,24 @@ if v:progname =~? "evim"
 endif
 
 set nocompatible
+filetype off                   " required!
+
+set rtp+=~/.vim/bundle/vundle/
+call vundle#rc()
+
+" let Vundle manage Vundle
+" required! 
+Bundle 'gmarik/vundle'
+
+" Plugins for my demands
+" Better than grep recursive search
+Bundle 'mileszs/ack.vim' 
+" Comment lines with gcc
+Bundle 'tpope/vim-commentary' 
+" Change text inside surrounding stuff
+Bundle 'tpope/vim-surround' 
+" Add color schemes
+Bundle 'dandorman/vim-colors'
 
 " allow backspacing over everything in insert mode
 set backspace=indent,eol,start
@@ -84,3 +102,6 @@ set tabstop=2 shiftwidth=2 " a tab is two spaces
 set expandtab " a tab is actually spaces, not tabs
 set ignorecase " ignore case in search
 set smartcase " until search pattern have at least one capital letter
+set number
+set laststatus=2
+colorscheme molokai
