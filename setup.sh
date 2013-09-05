@@ -12,3 +12,7 @@ git submodule update
 
 echo "Installing VIM plugins"
 vim +BundleInstall +qall
+
+echo "Initializing YouCompleteMe"
+cd ~/.vim/bundle/YouCompleteMe
+./install.sh

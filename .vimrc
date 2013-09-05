@@ -38,14 +38,14 @@ Bundle 'scrooloose/syntastic'
 " Mini window with tags
 Bundle 'majutsushi/tagbar'
 " Autocomplete on tab
-Bundle 'ervandew/supertab'
+" Bundle 'ervandew/supertab'
 " Snipmate (just system without snippets)
 Bundle 'MarcWeber/vim-addon-mw-utils'
 Bundle 'tomtom/tlib_vim'
-Bundle 'garbas/vim-snipmate'
+" Bundle 'garbas/vim-snipmate'
 " Actual snippets
 Bundle 'honza/vim-snippets'
-
+Bundle 'Valloric/YouCompleteMe'
 " Ruby
 Bundle 'vim-ruby/vim-ruby'
 Bundle 'tpope/vim-rails'
