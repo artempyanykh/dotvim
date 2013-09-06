@@ -39,10 +39,11 @@ Bundle 'scrooloose/syntastic'
 Bundle 'majutsushi/tagbar'
 " Autocomplete on tab
 " Bundle 'ervandew/supertab'
-" Snipmate (just system without snippets)
+" Snippets
 Bundle 'MarcWeber/vim-addon-mw-utils'
 Bundle 'tomtom/tlib_vim'
 " Bundle 'garbas/vim-snipmate'
+Bundle 'SirVer/ultisnips'
 " Actual snippets
 Bundle 'honza/vim-snippets'
 Bundle 'Valloric/YouCompleteMe'
@@ -143,3 +144,25 @@ set directory^=~/.vim/_temp//      " where to put swap files.
 
 " Tagbar
 nnoremap <Leader>t :TagbarToggle<CR>
+
+" Easytags
+let g:easytags_updatetime_min=2000
+
+" Ultinsips
+" Resolve key mapping issue (Ultisnips clashes with YouCompleteMe)
+let g:UltiSnipsExpandTrigger="<c-j>"
+let g:UltiSnipsJumpForwardTrigger="<c-j>"
+let g:UltiSnipsJumpBackwardTrigger="<c-k>"
+
+" Omnicompletion
+" autocmd FileType python set omnifunc=pythoncomplete#Complete
+" autocmd FileType javascript set omnifunc=javascriptcomplete#CompleteJS
+" autocmd FileType html set omnifunc=htmlcomplete#CompleteTags
+" autocmd FileType css set omnifunc=csscomplete#CompleteCSS
+" autocmd FileType xml set omnifunc=xmlcomplete#CompleteTags
+" autocmd FileType php set omnifunc=phpcomplete#CompletePHP
+" autocmd FileType c set omnifunc=ccomplete#Complete
+" autocmd FileType ruby,eruby set omnifunc=rubycomplete#Complete
+" autocmd FileType ruby,eruby let g:rubycomplete_buffer_loading = 1
+" autocmd FileType ruby,eruby let g:rubycomplete_rails = 1
+" autocmd FileType ruby,eruby let g:rubycomplete_classes_in_global = 1
