@@ -33,8 +33,6 @@ Bundle 'xolox/vim-misc'
 Bundle 'xolox/vim-easytags'
 " Mini explorer for buffers
 Bundle 'fholgado/minibufexpl.vim'
-" Window resizing
-Bundle 'roman/golden-ratio'
 " Multiple cursors
 Bundle 'terryma/vim-multiple-cursors'
 " Check syntax
@@ -132,6 +130,12 @@ let mapleader=","
 " Exit INSERT mode on jk
 inoremap jj <ESC>
 nnoremap <Leader>hs :nohls<CR>
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" OPEN FILES IN DIRECTORY OF CURRENT FILE
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+cnoremap %% <C-R>=expand('%:h').'/'<cr>
+map <leader>e :edit %%
+map <leader>v :view %%
 " }
 
 " Custom functions {
@@ -182,8 +186,9 @@ let g:UltiSnipsJumpBackwardTrigger="<c-k>"
 
 " Multiple cursors {
 let g:multi_cursor_use_default_mapping=0
-let g:multi_cursor_next_key='<C-n>'
-let g:multi_cursor_prev_key='<C-P>'
-let g:multi_cursor_skip_key='<C-x>'
+let g:multi_cursor_next_key='<C-S-n>'
+let g:multi_cursor_prev_key='<C-S-p>'
+let g:multi_cursor_skip_key='<C-S-x>'
 let g:multi_cursor_quit_key='<Esc>'
 " }
+
