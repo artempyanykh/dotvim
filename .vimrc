@@ -33,6 +33,10 @@ Bundle 'xolox/vim-misc'
 Bundle 'xolox/vim-easytags'
 " Mini explorer for buffers
 Bundle 'fholgado/minibufexpl.vim'
+" Window resizing
+Bundle 'roman/golden-ratio'
+" Multiple cursors
+Bundle 'terryma/vim-multiple-cursors'
 " Check syntax
 Bundle 'scrooloose/syntastic'
 " Mini window with tags
@@ -55,39 +59,16 @@ Bundle 'tpope/vim-rails'
 " HTML
 " CSS
 
-" allow backspacing over everything in insert mode
-set backspace=indent,eol,start
+" Common config {
+set backspace=indent,eol,start " allow backspacing over everything in insert mode
 set nobackup		" do not keep a backup file, use versions instead
 set history=50		" keep 50 lines of command line history
 set ruler		" show the cursor position all the time
 set showcmd		" display incomplete commands
 set incsearch		" do incremental searching
-
-map Q gq
-inoremap <C-U> <C-G>u<C-U>
-set mouse=a
 syntax on
 set t_Co=256
 set hlsearch
-filetype plugin indent on
-" Put these in an autocmd group, so that we can delete them easily.
-augroup vimrcEx
-au!
-autocmd FileType text setlocal textwidth=78
-" Go to the last position in file
-autocmd BufReadPost *
-      \ if line("'\"") > 1 && line("'\"") <= line("$") |
-      \   exe "normal! g`\"" |
-      \ endif
-augroup END
-
-
-" Difference between buffer and original file
-if !exists(":DiffOrig")
-  command DiffOrig vert new | set bt=nofile | r ++edit # | 0d_ | diffthis
-		  \ | wincmd p | diffthis
-endif
-
 set hidden " do not close buffer, just hide it
 set encoding=utf-8 " set default encoding
 set nowrap " don't wrap lines
@@ -97,28 +78,7 @@ set ignorecase " ignore case in search
 set smartcase " until search pattern have at least one capital letter
 set number " show line numbers
 set laststatus=2 " always show status line
-
-colorscheme molokai
-if has("gui_running")
-  colorscheme codeschool
-endif
-
-imap <S-CR> <CR><CR>end<Esc>-cc
-" Remap leader to ,
-let mapleader=","
-" Exit INSERT mode on jk
-inoremap jj <ESC>
-nnoremap <Leader>hs :nohls<CR>
-
-" Minibuffer settings
-let g:miniBufExplMapWindowNavVim = 1
-let g:miniBufExplMapWindowNavArrows = 1
-let g:miniBufExplMapCTabSwitchBufs = 1
-let g:miniBufExplModSelTarget = 1
-map <C-Tab> :bnext<CR>
-map <C-S-Tab> :bprevious<CR>
 set timeoutlen=500
-
 " List chars
 set listchars=""                  " Reset the listchars
 set listchars=tab:\ \             " a tab should display as "  ", trailing whitespace as "."
@@ -127,7 +87,6 @@ set listchars+=extends:>          " The character to show in the last column whe
 set listchars+=precedes:<         " The character to show in the last column when wrap is
 set list
 nnoremap <Leader>rtw :%s/\s\+$//e<CR>
-
 " Disable output and VCS files
 set wildignore+=*.o,*.out,*.obj,.git,*.rbc,*.rbo,*.class,.svn,*.gem
 " Disable archive files
@@ -141,20 +100,73 @@ set wildignore+=*.swp,*~,._*
 
 set backupdir^=~/.vim/_backup//    " where to put backup files.
 set directory^=~/.vim/_temp//      " where to put swap files.
+" }
 
-" Tagbar
+" Visual style {
+colorscheme molokai
+if has("gui_running")
+  colorscheme codeschool
+endif
+" }
+
+" Autocmd {
+filetype plugin indent on
+" Put these in an autocmd group, so that we can delete them easily.
+augroup vimrcEx
+au!
+autocmd FileType text setlocal textwidth=78
+" Go to the last position in file
+autocmd BufReadPost *
+      \ if line("'\"") > 1 && line("'\"") <= line("$") |
+      \   exe "normal! g`\"" |
+      \ endif
+augroup END
+" }
+
+" Custom mappings {
+map Q gq
+inoremap <C-U> <C-G>u<C-U>
+imap <S-CR> <CR><CR>end<Esc>-cc
+" Remap leader to ,
+let mapleader=","
+" Exit INSERT mode on jk
+inoremap jj <ESC>
+nnoremap <Leader>hs :nohls<CR>
+" }
+
+" Custom functions {
+" Difference between buffer and original file
+if !exists(":DiffOrig")
+  command DiffOrig vert new | set bt=nofile | r ++edit # | 0d_ | diffthis
+		  \ | wincmd p | diffthis
+endif
+" }
+
+" Minibuffer settings {
+let g:miniBufExplMapWindowNavVim = 1
+let g:miniBufExplMapWindowNavArrows = 1
+let g:miniBufExplMapCTabSwitchBufs = 1
+let g:miniBufExplModSelTarget = 1
+map <C-Tab> :bnext<CR>
+map <C-S-Tab> :bprevious<CR>
+" }
+
+" Tagbar {
 nnoremap <Leader>t :TagbarToggle<CR>
+" }
 
-" Easytags
+" Easytags {
 let g:easytags_updatetime_min=2000
+" }
 
-" Ultinsips
+" Ultinsips {
 " Resolve key mapping issue (Ultisnips clashes with YouCompleteMe)
 let g:UltiSnipsExpandTrigger="<c-j>"
 let g:UltiSnipsJumpForwardTrigger="<c-j>"
 let g:UltiSnipsJumpBackwardTrigger="<c-k>"
+" }
 
-" Omnicompletion
+" Omnicompletion {
 " autocmd FileType python set omnifunc=pythoncomplete#Complete
 " autocmd FileType javascript set omnifunc=javascriptcomplete#CompleteJS
 " autocmd FileType html set omnifunc=htmlcomplete#CompleteTags
@@ -166,3 +178,12 @@ let g:UltiSnipsJumpBackwardTrigger="<c-k>"
 " autocmd FileType ruby,eruby let g:rubycomplete_buffer_loading = 1
 " autocmd FileType ruby,eruby let g:rubycomplete_rails = 1
 " autocmd FileType ruby,eruby let g:rubycomplete_classes_in_global = 1
+" }
+
+" Multiple cursors {
+let g:multi_cursor_use_default_mapping=0
+let g:multi_cursor_next_key='<C-n>'
+let g:multi_cursor_prev_key='<C-P>'
+let g:multi_cursor_skip_key='<C-x>'
+let g:multi_cursor_quit_key='<Esc>'
+" }
