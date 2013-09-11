@@ -26,9 +26,7 @@ Bundle 'kien/ctrlp.vim'
 Bundle 'Lokaltog/vim-easymotion'
 " Better matching
 Bundle 'tsaleh/vim-matchit'
-" Git plugin for vim
-Bundle 'tpope/vim-fugitive'
-Bundle 'xolox/vim-misc'
+
 " Regenerate tags every time
 Bundle 'xolox/vim-easytags'
 " Mini explorer for buffers
@@ -39,8 +37,7 @@ Bundle 'terryma/vim-multiple-cursors'
 Bundle 'scrooloose/syntastic'
 " Mini window with tags
 Bundle 'majutsushi/tagbar'
-" Autocomplete on tab
-" Bundle 'ervandew/supertab'
+
 " Snippets
 Bundle 'MarcWeber/vim-addon-mw-utils'
 Bundle 'tomtom/tlib_vim'
@@ -49,13 +46,21 @@ Bundle 'SirVer/ultisnips'
 " Actual snippets
 Bundle 'honza/vim-snippets'
 Bundle 'Valloric/YouCompleteMe'
+
 " Ruby
 Bundle 'vim-ruby/vim-ruby'
 Bundle 'tpope/vim-rails'
+Bundle 'tpope/vim-bundler'
+
 " JavaScript
 " CoffeeScript
 " HTML
 " CSS
+
+" Git plugins for vim
+Bundle 'tpope/vim-git'
+Bundle 'tpope/vim-fugitive'
+Bundle 'xolox/vim-misc'
 
 " Common config {
 set backspace=indent,eol,start " allow backspacing over everything in insert mode
