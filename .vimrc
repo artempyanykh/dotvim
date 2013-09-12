@@ -158,7 +158,7 @@ map <leader>v :view %%
 " Difference between buffer and original file
 if !exists(":DiffOrig")
   command DiffOrig vert new | set bt=nofile | r ++edit # | 0d_ | diffthis
-		  \ | wincmd p | diffthis
+        \ | wincmd p | diffthis
 endif
 " }
 
@@ -203,7 +203,7 @@ let g:UltiSnipsJumpBackwardTrigger="<c-k>"
 " Multiple cursors {
 let g:multi_cursor_use_default_mapping=0
 let g:multi_cursor_next_key='<C-n>'
-let g:multi_cursor_prev_key='<C-P>'
+let g:multi_cursor_prev_key='<C-p>'
 let g:multi_cursor_skip_key='<C-x>'
 let g:multi_cursor_quit_key='<Esc>'
 " }
