@@ -63,33 +63,49 @@ Bundle 'tpope/vim-fugitive'
 Bundle 'xolox/vim-misc'
 
 " Common config {
+" Indentind and stuff
+set autoindent
 set backspace=indent,eol,start " allow backspacing over everything in insert mode
-set nobackup		" do not keep a backup file, use versions instead
-set history=50		" keep 50 lines of command line history
+set complete-=i
+set smarttab
+set shiftround
+
+" Visuals
+set laststatus=2 " always show status line
 set ruler		" show the cursor position all the time
 set showcmd		" display incomplete commands
-set incsearch		" do incremental searching
+set wildmenu
+
+" Editor
+if !&scrolloff
+  set scrolloff=1
+endif
+if !&sidescrolloff
+  set sidescrolloff=5
+endif
+set display+=lastline
+set encoding=utf-8 " set default encoding
+set listchars=tab:>\ ,trail:.,extends:>,precedes:<,nbsp:+
+if !has('win32') && (&termencoding ==# 'utf-8' || &encoding ==# 'utf-8')
+  let &listchars = "tab:\u21e5 ,trail:.,extends:>,precedes:<,nbsp:\u00b7"
+endif
+set list
+set autoread
+
+set nobackup " do not keep a backup file, use versions instead
+set history=1000 " keep 50 lines of command line history
+set incsearch " do incremental searching
 syntax on
 set t_Co=256
 set hlsearch
 set hidden " do not close buffer, just hide it
-set encoding=utf-8 " set default encoding
 set nowrap " don't wrap lines
 set tabstop=2 shiftwidth=2 " a tab is two spaces
 set expandtab " a tab is actually spaces, not tabs
 set ignorecase " ignore case in search
 set smartcase " until search pattern have at least one capital letter
 set number " show line numbers
-set laststatus=2 " always show status line
 set timeoutlen=500
-" List chars
-set listchars=""                  " Reset the listchars
-set listchars=tab:\ \             " a tab should display as "  ", trailing whitespace as "."
-set listchars+=trail:.            " show trailing spaces as dots
-set listchars+=extends:>          " The character to show in the last column when wrap is
-set listchars+=precedes:<         " The character to show in the last column when wrap is
-set list
-nnoremap <Leader>rtw :%s/\s\+$//e<CR>
 " Disable output and VCS files
 set wildignore+=*.o,*.out,*.obj,.git,*.rbc,*.rbo,*.class,.svn,*.gem
 " Disable archive files
@@ -147,7 +163,7 @@ map <leader>v :view %%
 " Difference between buffer and original file
 if !exists(":DiffOrig")
   command DiffOrig vert new | set bt=nofile | r ++edit # | 0d_ | diffthis
-		  \ | wincmd p | diffthis
+        \ | wincmd p | diffthis
 endif
 " }
 
@@ -191,9 +207,9 @@ let g:UltiSnipsJumpBackwardTrigger="<c-k>"
 
 " Multiple cursors {
 let g:multi_cursor_use_default_mapping=0
-let g:multi_cursor_next_key='<C-S-n>'
-let g:multi_cursor_prev_key='<C-S-p>'
-let g:multi_cursor_skip_key='<C-S-x>'
+let g:multi_cursor_next_key='<C-n>'
+let g:multi_cursor_prev_key='<C-p>'
+let g:multi_cursor_skip_key='<C-x>'
 let g:multi_cursor_quit_key='<Esc>'
 " }
 
