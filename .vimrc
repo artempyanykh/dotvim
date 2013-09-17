@@ -224,4 +224,7 @@ nnoremap<silent> <Leader>t :NERDTreeTabsToggle<CR>
 
 " Golderview {
 let g:goldenview__enable_default_mapping = 0
+nmap <silent> <F8>   <Plug>GoldenViewSwitchMain
+nmap <silent> <S-F8> <Plug>GoldenViewSwitchToggle
+nmap <silent> <Leader>z <Plug>GoldenViewResize
 " }
