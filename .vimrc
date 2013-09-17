@@ -175,15 +175,6 @@ if !exists(":DiffOrig")
 endif
 " }
 
-" Minibuffer settings {
-let g:miniBufExplMapWindowNavVim = 1
-let g:miniBufExplMapWindowNavArrows = 1
-let g:miniBufExplMapCTabSwitchBufs = 1
-let g:miniBufExplModSelTarget = 1
-map <C-Tab> :bnext<CR>
-map <C-S-Tab> :bprevious<CR>
-" }
-
 " Tagbar {
 " 's' from 'structure'
 nnoremap<silent> <Leader>s :TagbarToggle<CR>
@@ -229,4 +220,8 @@ nnoremap<silent> <Leader>b :BuffergatorToggle<CR>
 
 " NERDTree {
 nnoremap<silent> <Leader>t :NERDTreeTabsToggle<CR>
+" }
+
+" Golderview {
+let g:goldenview__enable_default_mapping = 0
 " }
