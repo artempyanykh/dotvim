@@ -1,3 +1,3 @@
 #!/bin/bash
-source ~/.profile
+source ~/.bashrc
 gvim -f %F

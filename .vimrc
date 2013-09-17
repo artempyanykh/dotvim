@@ -29,14 +29,22 @@ Bundle 'tsaleh/vim-matchit'
 
 " Regenerate tags every time
 Bundle 'xolox/vim-easytags'
-" Mini explorer for buffers
-Bundle 'fholgado/minibufexpl.vim'
+" Buffers
+Bundle 'jeetsukumaran/vim-buffergator'
+Bundle 'vim-scripts/ZoomWin'
 " Multiple cursors
 Bundle 'terryma/vim-multiple-cursors'
 " Check syntax
 Bundle 'scrooloose/syntastic'
 " Mini window with tags
 Bundle 'majutsushi/tagbar'
+" Project tree
+Bundle 'scrooloose/nerdtree.git'
+Bundle 'jistr/vim-nerdtree-tabs'
+" Window management
+Bundle 'zhaocai/GoldenView.Vim'
+" Better search
+Bundle 'henrik/vim-indexed-search'
 
 " Snippets
 Bundle 'MarcWeber/vim-addon-mw-utils'
@@ -150,7 +158,7 @@ imap <S-CR> <CR><CR>end<Esc>-cc
 let mapleader=","
 " Exit INSERT mode on jk
 inoremap jj <ESC>
-nnoremap <Leader>hs :nohls<CR>
+nnoremap<silent> <Leader>hs :nohls<CR>
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " OPEN FILES IN DIRECTORY OF CURRENT FILE
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -177,7 +185,8 @@ map <C-S-Tab> :bprevious<CR>
 " }
 
 " Tagbar {
-nnoremap <Leader>t :TagbarToggle<CR>
+" 's' from 'structure'
+nnoremap<silent> <Leader>s :TagbarToggle<CR>
 " }
 
 " Easytags {
@@ -213,3 +222,11 @@ let g:multi_cursor_skip_key='<C-x>'
 let g:multi_cursor_quit_key='<Esc>'
 " }
 
+" Buffergator {
+let g:buffergator_suppress_keymaps=1
+nnoremap<silent> <Leader>b :BuffergatorToggle<CR>
+" }
+
+" NERDTree {
+nnoremap<silent> <Leader>t :NERDTreeTabsToggle<CR>
+" }
