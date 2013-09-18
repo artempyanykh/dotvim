@@ -133,6 +133,8 @@ set directory^=~/.vim/_temp//      " where to put swap files.
 colorscheme molokai
 if has("gui_running")
   colorscheme codeschool
+  set guioptions-=T  "remove toolbar
+  set guioptions-=r  "remove right-hand scroll bar
 endif
 " }
 
@@ -227,4 +229,10 @@ let g:goldenview__enable_default_mapping = 0
 nmap <silent> <F8>   <Plug>GoldenViewSwitchMain
 nmap <silent> <S-F8> <Plug>GoldenViewSwitchToggle
 nmap <silent> <Leader>z <Plug>GoldenViewResize
+" }
+
+" Vim Fugitive {
+nnoremap <Leader>gd :Gdiff<CR>
+nnoremap <Leader>gs :Gstatus<CR>
+nnoremap <Leader>gc <C-w>o:diffoff<CR>
 " }
