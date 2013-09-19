@@ -31,7 +31,7 @@ Bundle 'tsaleh/vim-matchit'
 Bundle 'xolox/vim-easytags'
 " Buffers
 Bundle 'jeetsukumaran/vim-buffergator'
-Bundle 'vim-scripts/ZoomWin'
+" Bundle 'vim-scripts/ZoomWin'
 " Multiple cursors
 Bundle 'terryma/vim-multiple-cursors'
 " Check syntax
@@ -146,7 +146,6 @@ colorscheme molokai
 if has("gui_running")
   colorscheme codeschool
   set guioptions-=T  "remove toolbar
-  set guioptions-=r  "remove right-hand scroll bar
 endif
 " }
 
