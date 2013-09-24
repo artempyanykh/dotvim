@@ -17,7 +17,7 @@ Bundle 'tpope/vim-commentary'
 " Change text inside surrounding stuff
 Bundle 'tpope/vim-surround'
 " Add color schemes
-Bundle 'dandorman/vim-colors'
+Bundle 'flazz/vim-colorschemes'
 Bundle 'L9'
 Bundle 'FuzzyFinder'
 " Fuzzy search on project
@@ -146,6 +146,8 @@ colorscheme molokai
 if has("gui_running")
   colorscheme codeschool
   set guioptions-=T  "remove toolbar
+else
+  colorscheme Monokai
 endif
 " }
 
