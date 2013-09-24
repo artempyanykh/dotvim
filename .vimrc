@@ -26,7 +26,6 @@ Bundle 'kien/ctrlp.vim'
 Bundle 'Lokaltog/vim-easymotion'
 " Better matching
 Bundle 'tsaleh/vim-matchit'
-
 " Regenerate tags every time
 Bundle 'xolox/vim-easytags'
 " Buffers
@@ -41,11 +40,10 @@ Bundle 'majutsushi/tagbar'
 " Project tree
 Bundle 'scrooloose/nerdtree.git'
 Bundle 'jistr/vim-nerdtree-tabs'
-" Window management
-Bundle 'zhaocai/GoldenView.Vim'
 " Better search
 Bundle 'henrik/vim-indexed-search'
-
+" Fancy undo
+Bundle 'sjl/gundo.vim'
 " Snippets
 Bundle 'MarcWeber/vim-addon-mw-utils'
 Bundle 'tomtom/tlib_vim'
@@ -237,15 +235,21 @@ nnoremap<silent> <Leader>b :BuffergatorToggle<CR>
 nnoremap<silent> <Leader>t :NERDTreeTabsToggle<CR>
 " }
 
-" Golderview {
-let g:goldenview__enable_default_mapping = 0
-nmap <silent> <F8>   <Plug>GoldenViewSwitchMain
-nmap <silent> <S-F8> <Plug>GoldenViewSwitchToggle
-nmap <silent> <Leader>z <Plug>GoldenViewResize
+" Window size management {
+nnoremap <silent> <Leader>= :exe "resize " . (winheight(0) * 3/2)<CR>
+nnoremap <silent> <Leader>- :exe "resize " . (winheight(0) * 2/3)<CR>
+nnoremap <silent> <Leader>> :exe "vertical resize " . (winwidth(0) * 3/2)<CR>
+nnoremap <silent> <Leader>< :exe "vertical resize " . (winwidth(0) * 2/3)<CR>
+nnoremap <silent> <C-w>. :exe "vertical resize +20"<CR>
+nnoremap <silent> <C-w>, :exe "vertical resize -20"<CR>
 " }
 
 " Vim Fugitive {
 nnoremap <Leader>gd :Gdiff<CR>
 nnoremap <Leader>gs :Gstatus<CR>
 nnoremap <Leader>gc <C-w>o:diffoff<CR>
+" }
+
+" Gundo {
+nnoremap <F5> :GundoToggle<CR>
 " }
