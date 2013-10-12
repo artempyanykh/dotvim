@@ -90,8 +90,8 @@ set statusline+=%=                           " right align
 set statusline+=%{synIDattr(synID(line('.'),col('.'),1),'name')}\  " highlight
 set statusline+=%b,0x%-8B\                   " current char
 set statusline+=%-14.(%l,%c%V%)\ %<%P        " offset
-set ruler		" show the cursor position all the time
-set showcmd		" display incomplete commands
+set ruler " show the cursor position all the time
+set showcmd " display incomplete commands
 set wildmenu
 
 " Editor
