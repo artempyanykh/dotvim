@@ -140,13 +140,7 @@ set directory^=~/.vim/_temp//      " where to put swap files.
 " }
 
 " Visual style {
-colorscheme molokai
-if has("gui_running")
-  colorscheme codeschool
-  set guioptions-=T  "remove toolbar
-else
-  colorscheme Monokai
-endif
+colorscheme Monokai
 " }
 
 " Autocmd {
