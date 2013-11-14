@@ -11,7 +11,7 @@ call vundle#rc()
 Bundle 'gmarik/vundle'
 
 " Better than grep recursive search
-Bundle 'mileszs/ack.vim'
+Bundle 'epmatsw/ag.vim'
 " Comment lines with gcc
 Bundle 'tpope/vim-commentary'
 " Change text inside surrounding stuff
@@ -163,7 +163,7 @@ inoremap <C-U> <C-G>u<C-U>
 imap <S-CR> <CR><CR>end<Esc>-cc
 " Remap leader to ,
 let mapleader=","
-" Exit INSERT mode on jk
+" Exit INSERT mode on jj
 inoremap jj <ESC>
 nnoremap<silent> <Leader>hs :nohls<CR>
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
