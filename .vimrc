@@ -59,6 +59,7 @@ Bundle 'Raimondi/delimitMate'
 Bundle 'vim-ruby/vim-ruby'
 Bundle 'tpope/vim-rails'
 Bundle 'tpope/vim-bundler'
+Bundle 'tpope/vim-endwise'
 
 " JavaScript
 Bundle 'pangloss/vim-javascript'
