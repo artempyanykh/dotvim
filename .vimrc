@@ -119,6 +119,7 @@ set hlsearch
 set hidden " do not close buffer, just hide it
 set nowrap " don't wrap lines
 set tabstop=2 shiftwidth=2 " a tab is two spaces
+set foldlevelstart=20 " no folding by default
 set expandtab " a tab is actually spaces, not tabs
 set ignorecase " ignore case in search
 set smartcase " until search pattern have at least one capital letter
@@ -155,6 +156,9 @@ autocmd BufReadPost *
       \   exe "normal! g`\"" |
       \ endif
 augroup END
+
+autocmd FileType ruby,eruby setlocal foldmethod=indent
+autocmd FileType ruby,eruby normal zR
 " }
 
 " Custom mappings {
