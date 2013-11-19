@@ -61,7 +61,7 @@ Bundle 'tpope/vim-rails'
 Bundle 'tpope/vim-bundler'
 
 " JavaScript
-Bundle 'pangloss/vim-javascri'
+Bundle 'pangloss/vim-javascript'
 " CoffeeScript
 Bundle 'kchmck/vim-coffee-script'
 " HTML
