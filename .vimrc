@@ -52,6 +52,8 @@ Bundle 'SirVer/ultisnips'
 " Actual snippets
 Bundle 'honza/vim-snippets'
 Bundle 'Valloric/YouCompleteMe'
+" Auto-complete paired characters (, {, etc.
+Bundle 'Raimondi/delimitMate'
 
 " Ruby
 Bundle 'vim-ruby/vim-ruby'
@@ -59,7 +61,9 @@ Bundle 'tpope/vim-rails'
 Bundle 'tpope/vim-bundler'
 
 " JavaScript
+Bundle 'pangloss/vim-javascri'
 " CoffeeScript
+Bundle 'kchmck/vim-coffee-script'
 " HTML
 " CSS
 
@@ -255,4 +259,19 @@ nnoremap <Leader>gc <C-w>o:diffoff<CR>
 
 " Gundo {
 nnoremap <F5> :GundoToggle<CR>
+" }
+
+" CtrlP {
+let g:ctrlp_custom_ignore = '\v[\/]\.(git|hg|svn)$'
+" }
+
+" Some Ag happiness {
+nnoremap <Leader>f :Ag<Space>
+if executable('ag')
+  " Use ag in CtrlP for listing files. Lightning fast and respects .gitignore
+  let g:ctrlp_user_command = 'ag %s -l --nocolor -g ""'
+
+  " ag is fast enough that CtrlP doesn't need to cache
+  " let g:ctrlp_use_caching = 0
+endif
 " }
