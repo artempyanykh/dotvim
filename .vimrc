@@ -166,12 +166,17 @@ let mapleader=","
 " Exit INSERT mode on jj
 inoremap jj <ESC>
 nnoremap<silent> <Leader>hs :nohls<CR>
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" OPEN FILES IN DIRECTORY OF CURRENT FILE
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+
+nnoremap ; :
+nnoremap : ;
+vnoremap ; :
+vnoremap : ;
+
+" open files in directory of current file
 cnoremap %% <C-R>=expand('%:h').'/'<cr>
-map <leader>e :edit %%
-map <leader>v :view %%
+" should use ; to enter command mode because of the mapping right above
+map <leader>e ;edit %%
+map <leader>v ;view %%
 " }
 
 " Custom functions {
