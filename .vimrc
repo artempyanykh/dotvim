@@ -54,6 +54,8 @@ Bundle 'honza/vim-snippets'
 Bundle 'Valloric/YouCompleteMe'
 " Auto-complete paired characters (, {, etc.
 Bundle 'Raimondi/delimitMate'
+" Better session management
+Bundle 'xolox/vim-session'
 
 " Ruby
 Bundle 'vim-ruby/vim-ruby'
@@ -275,4 +277,11 @@ if executable('ag')
   " ag is fast enough that CtrlP doesn't need to cache
   " let g:ctrlp_use_caching = 0
 endif
+" }
+
+" Vim-Session {
+let g:session_autoload='no'
+let g:session_autosave='no'
+nnoremap <Leader>ss :SaveSession<CR>
+nnoremap <Leader>so :OpenSession<CR>
 " }
