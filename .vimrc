@@ -248,10 +248,10 @@ nnoremap<silent> <Leader>t :NERDTreeTabsToggle<CR>
 " Window size management {
 nnoremap <silent> <Leader>= :exe "resize " . (winheight(0) * 3/2)<CR>
 nnoremap <silent> <Leader>- :exe "resize " . (winheight(0) * 2/3)<CR>
-nnoremap <silent> <Leader>> :exe "vertical resize " . (winwidth(0) * 3/2)<CR>
-nnoremap <silent> <Leader>< :exe "vertical resize " . (winwidth(0) * 2/3)<CR>
-nnoremap <silent> <C-w>. :exe "vertical resize +20"<CR>
-nnoremap <silent> <C-w>, :exe "vertical resize -20"<CR>
+nnoremap <silent> <Leader>. :exe "vertical resize +20"<CR>
+nnoremap <silent> <Leader>, :exe "vertical resize -20"<CR>
+nnoremap <silent> <Leader>> :exe "resize +10"<CR>
+nnoremap <silent> <Leader>< :exe "resize -10"<CR>
 " }
 
 " Vim Fugitive {
