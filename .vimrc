@@ -48,10 +48,10 @@ Bundle 'sjl/gundo.vim'
 Bundle 'MarcWeber/vim-addon-mw-utils'
 Bundle 'tomtom/tlib_vim'
 " Bundle 'garbas/vim-snipmate'
-Bundle 'SirVer/ultisnips'
-" Actual snippets
-Bundle 'honza/vim-snippets'
-Bundle 'Valloric/YouCompleteMe'
+" Bundle 'SirVer/ultisnips'
+" " Actual snippets
+" Bundle 'honza/vim-snippets'
+" Bundle 'Valloric/YouCompleteMe'
 " Auto-complete paired characters (, {, etc.
 Bundle 'Raimondi/delimitMate'
 " Better session management
