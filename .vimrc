@@ -51,7 +51,8 @@ Bundle 'tomtom/tlib_vim'
 " Bundle 'SirVer/ultisnips'
 " " Actual snippets
 " Bundle 'honza/vim-snippets'
-" Bundle 'Valloric/YouCompleteMe'
+" Autocomplete features
+Bundle 'Valloric/YouCompleteMe'
 " Auto-complete paired characters (, {, etc.
 Bundle 'Raimondi/delimitMate'
 " Better session management
@@ -164,8 +165,8 @@ autocmd BufReadPost *
       \ endif
 augroup END
 
-autocmd FileType ruby,eruby setlocal foldmethod=indent
-autocmd FileType ruby,eruby normal zR
+" autocmd FileType ruby,eruby setlocal foldmethod=indent
+" autocmd FileType ruby,eruby normal zR
 " }
 
 " Custom mappings {
@@ -209,9 +210,9 @@ let g:easytags_updatetime_min=2000
 
 " Ultinsips {
 " Resolve key mapping issue (Ultisnips clashes with YouCompleteMe)
-let g:UltiSnipsExpandTrigger="<c-j>"
-let g:UltiSnipsJumpForwardTrigger="<c-j>"
-let g:UltiSnipsJumpBackwardTrigger="<c-k>"
+" let g:UltiSnipsExpandTrigger="<c-j>"
+" let g:UltiSnipsJumpForwardTrigger="<c-j>"
+" let g:UltiSnipsJumpBackwardTrigger="<c-k>"
 " }
 
 " Omnicompletion {
