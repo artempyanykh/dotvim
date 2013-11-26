@@ -19,7 +19,6 @@ Bundle 'tpope/vim-surround'
 " Add color schemes
 Bundle 'flazz/vim-colorschemes'
 Bundle 'L9'
-Bundle 'FuzzyFinder'
 " Fuzzy search on project
 Bundle 'kien/ctrlp.vim'
 " Trigger awesome motion with <Leader><Leader>
@@ -27,7 +26,7 @@ Bundle 'Lokaltog/vim-easymotion'
 " Better matching
 Bundle 'tsaleh/vim-matchit'
 " Regenerate tags every time
-Bundle 'xolox/vim-easytags'
+" Bundle 'xolox/vim-easytags'
 " Buffers
 Bundle 'jeetsukumaran/vim-buffergator'
 " Bundle 'vim-scripts/ZoomWin'
@@ -35,8 +34,8 @@ Bundle 'jeetsukumaran/vim-buffergator'
 Bundle 'terryma/vim-multiple-cursors'
 " Check syntax
 Bundle 'scrooloose/syntastic'
-" Mini window with tags
-Bundle 'majutsushi/tagbar'
+" " Mini window with tags
+" Bundle 'majutsushi/tagbar'
 " Project tree
 Bundle 'scrooloose/nerdtree.git'
 Bundle 'jistr/vim-nerdtree-tabs'
@@ -104,10 +103,10 @@ set wildmenu
 
 " Editor
 if !&scrolloff
-  set scrolloff=1
+  set scrolloff=5
 endif
 if !&sidescrolloff
-  set sidescrolloff=5
+  set sidescrolloff=10
 endif
 set display+=lastline
 set encoding=utf-8 " set default encoding
@@ -177,7 +176,7 @@ imap <S-CR> <CR><CR>end<Esc>-cc
 let mapleader=","
 " Exit INSERT mode on jj
 inoremap jj <ESC>
-nnoremap<silent> <Leader>hs :nohls<CR>
+nnoremap<silent> <Leader>h :nohls<CR>
 
 nnoremap ; :
 nnoremap : ;
@@ -201,11 +200,11 @@ endif
 
 " Tagbar {
 " 's' from 'structure'
-nnoremap<silent> <Leader>s :TagbarToggle<CR>
+" nnoremap<silent> <Leader>s :TagbarToggle<CR>
 " }
 
 " Easytags {
-let g:easytags_updatetime_min=2000
+" let g:easytags_updatetime_min=2000
 " }
 
 " Ultinsips {
