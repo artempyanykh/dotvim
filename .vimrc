@@ -51,7 +51,8 @@ Bundle 'tomtom/tlib_vim'
 " " Actual snippets
 " Bundle 'honza/vim-snippets'
 " Autocomplete features
-Bundle 'Valloric/YouCompleteMe'
+" Bundle 'Valloric/YouCompleteMe'
+Bundle 'Shougo/neocomplete.vim'
 " Auto-complete paired characters (, {, etc.
 Bundle 'Raimondi/delimitMate'
 " Better session management
@@ -241,8 +242,17 @@ let g:buffergator_suppress_keymaps=1
 nnoremap<silent> <Leader>b :BuffergatorToggle<CR>
 " }
 
-" NERDTree {
+" NERDTree + Tabs {
 nnoremap<silent> <Leader>t :NERDTreeTabsToggle<CR>
+" NERDTree UI "
+let NERDTreeMinimalUI = 1
+let NERDTreeDirArrows = 1
+let g:NERDTreeWinSize = 30
+"" Auto open nerd tree on startup
+let g:nerdtree_tabs_open_on_gui_startup = 0
+" Focus in the main content window
+let g:nerdtree_tabs_focus_on_files = 1
+let g:nerdtree_tabs_startup_cd = 1
 " }
 
 " Window size management {
@@ -266,10 +276,6 @@ nnoremap <F5> :GundoToggle<CR>
 
 " CtrlP {
 let g:ctrlp_custom_ignore = '\v[\/]\.(git|hg|svn)$'
-" }
-
-" Some Ag happiness {
-nnoremap <Leader>f :Ag<Space>
 if executable('ag')
   " Use ag in CtrlP for listing files. Lightning fast and respects .gitignore
   let g:ctrlp_user_command = 'ag %s -l --nocolor -g ""'
@@ -279,9 +285,65 @@ if executable('ag')
 endif
 " }
 
+" Some Ag happiness {
+nnoremap <Leader>f :Ag<Space>
+" }
+
 " Vim-Session {
 let g:session_autoload='no'
 let g:session_autosave='no'
 nnoremap <Leader>ss :SaveSession<CR>
 nnoremap <Leader>so :OpenSession<CR>
+" }
+
+" NeoComplete {
+let g:neocomplete#enable_at_startup = 1
+let g:neocomplete#enable_smart_case = 1
+let g:neocomplete#max_list = 10
+let g:neocomplete#auto_completion_start_length = 3
+let g:neocomplete#sources#syntax#min_keyword_length = 3
+let g:neocomplete#lock_buffer_name_pattern = '\*ku\*'
+" This makes sure we use neocomplete completefunc instead of
+" the one in rails.vim, otherwise this plugin will crap out
+" So SKWP says, stolen from him
+let g:neocomplete#force_overwrite_completefunc = 1
+
+" Define keyword.
+if !exists('g:neocomplete#keyword_patterns')
+    let g:neocomplete#keyword_patterns = {}
+endif
+let g:neocomplete#keyword_patterns['default'] = '\h\w*'
+
+" Enable omni completion.
+autocmd FileType css setlocal omnifunc=csscomplete#CompleteCSS
+autocmd FileType html,markdown setlocal omnifunc=htmlcomplete#CompleteTags
+autocmd FileType javascript setlocal omnifunc=javascriptcomplete#CompleteJS
+autocmd FileType python setlocal omnifunc=pythoncomplete#Complete
+autocmd FileType xml setlocal omnifunc=xmlcomplete#CompleteTags
+autocmd FileType ruby setlocal omnifunc=rubycomplete#Complete
+" Complete largest common substring
+inoremap <expr><C-l> neocomplete#complete_common_string()
+
+" Recommended key-mappings.
+" <CR>: close popup and save indent.
+inoremap <silent> <CR> <C-r>=<SID>my_cr_function()<CR>
+function! s:my_cr_function()
+  return neocomplete#close_popup() . "\<CR>"
+  " For no inserting <CR> key.
+  "return pumvisible() ? neocomplete#close_popup() : "\<CR>"
+endfunction
+" <TAB>: completion.
+inoremap <expr><TAB> pumvisible() ? "\<C-n>" : "\<TAB>"
+" <C-h>, <BS>: close popup and delete backword char.
+inoremap <expr><C-h> neocomplete#smart_close_popup()."\<C-h>"
+inoremap <expr><BS> neocomplete#smart_close_popup()."\<C-h>"
+
+" Enable heavy omni completion.
+if !exists('g:neocomplete#sources#omni#input_patterns')
+  let g:neocomplete#sources#omni#input_patterns = {}
+endif
+let g:neocomplete#sources#omni#input_patterns.ruby = '[^. *\t]\.\w*\|\h\w*::'
+" For perlomni.vim setting.
+" https://github.com/c9s/perlomni.vim
+let g:neocomplete#sources#omni#input_patterns.perl = '\h\w*->\h\w*\|\h\w*::'
 " }
