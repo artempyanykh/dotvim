@@ -25,17 +25,12 @@ Bundle 'kien/ctrlp.vim'
 Bundle 'Lokaltog/vim-easymotion'
 " Better matching
 Bundle 'tsaleh/vim-matchit'
-" Regenerate tags every time
-" Bundle 'xolox/vim-easytags'
 " Buffers
 Bundle 'jeetsukumaran/vim-buffergator'
-" Bundle 'vim-scripts/ZoomWin'
 " Multiple cursors
 Bundle 'terryma/vim-multiple-cursors'
 " Check syntax
 Bundle 'scrooloose/syntastic'
-" " Mini window with tags
-" Bundle 'majutsushi/tagbar'
 " Project tree
 Bundle 'scrooloose/nerdtree.git'
 Bundle 'jistr/vim-nerdtree-tabs'
@@ -46,17 +41,14 @@ Bundle 'sjl/gundo.vim'
 " Snippets
 Bundle 'MarcWeber/vim-addon-mw-utils'
 Bundle 'tomtom/tlib_vim'
-" Bundle 'garbas/vim-snipmate'
-" Bundle 'SirVer/ultisnips'
-" " Actual snippets
-" Bundle 'honza/vim-snippets'
 " Autocomplete features
-" Bundle 'Valloric/YouCompleteMe'
 Bundle 'Shougo/neocomplete.vim'
 " Auto-complete paired characters (, {, etc.
 Bundle 'Raimondi/delimitMate'
 " Better session management
 Bundle 'xolox/vim-session'
+" Better status line
+Bundle 'bling/vim-airline'
 
 " Ruby
 Bundle 'vim-ruby/vim-ruby'
@@ -64,10 +56,10 @@ Bundle 'tpope/vim-rails'
 Bundle 'tpope/vim-bundler'
 Bundle 'tpope/vim-endwise'
 
-" JavaScript
+" JavaScript & Coffeescript
 Bundle 'pangloss/vim-javascript'
-" CoffeeScript
 Bundle 'kchmck/vim-coffee-script'
+
 " HTML
 " CSS
 
@@ -127,7 +119,8 @@ set hlsearch
 set hidden " do not close buffer, just hide it
 set nowrap " don't wrap lines
 set tabstop=2 shiftwidth=2 " a tab is two spaces
-set foldlevelstart=20 " no folding by default
+set foldnestmax=4
+set foldlevelstart=4 " no folding by default
 set expandtab " a tab is actually spaces, not tabs
 set ignorecase " ignore case in search
 set smartcase " until search pattern have at least one capital letter
@@ -204,31 +197,6 @@ endif
 " nnoremap<silent> <Leader>s :TagbarToggle<CR>
 " }
 
-" Easytags {
-" let g:easytags_updatetime_min=2000
-" }
-
-" Ultinsips {
-" Resolve key mapping issue (Ultisnips clashes with YouCompleteMe)
-" let g:UltiSnipsExpandTrigger="<c-j>"
-" let g:UltiSnipsJumpForwardTrigger="<c-j>"
-" let g:UltiSnipsJumpBackwardTrigger="<c-k>"
-" }
-
-" Omnicompletion {
-" autocmd FileType python set omnifunc=pythoncomplete#Complete
-" autocmd FileType javascript set omnifunc=javascriptcomplete#CompleteJS
-" autocmd FileType html set omnifunc=htmlcomplete#CompleteTags
-" autocmd FileType css set omnifunc=csscomplete#CompleteCSS
-" autocmd FileType xml set omnifunc=xmlcomplete#CompleteTags
-" autocmd FileType php set omnifunc=phpcomplete#CompletePHP
-" autocmd FileType c set omnifunc=ccomplete#Complete
-" autocmd FileType ruby,eruby set omnifunc=rubycomplete#Complete
-" autocmd FileType ruby,eruby let g:rubycomplete_buffer_loading = 1
-" autocmd FileType ruby,eruby let g:rubycomplete_rails = 1
-" autocmd FileType ruby,eruby let g:rubycomplete_classes_in_global = 1
-" }
-
 " Multiple cursors {
 let g:multi_cursor_use_default_mapping=0
 let g:multi_cursor_next_key='<C-n>'
@@ -245,14 +213,14 @@ nnoremap<silent> <Leader>b :BuffergatorToggle<CR>
 " NERDTree + Tabs {
 nnoremap<silent> <Leader>t :NERDTreeTabsToggle<CR>
 " NERDTree UI "
-let NERDTreeMinimalUI = 1
-let NERDTreeDirArrows = 1
-let g:NERDTreeWinSize = 30
+let NERDTreeMinimalUI=1
+let NERDTreeDirArrows=1
+let g:NERDTreeWinSize=30
 "" Auto open nerd tree on startup
-let g:nerdtree_tabs_open_on_gui_startup = 0
+let g:nerdtree_tabs_open_on_gui_startup=0
 " Focus in the main content window
-let g:nerdtree_tabs_focus_on_files = 1
-let g:nerdtree_tabs_startup_cd = 1
+let g:nerdtree_tabs_focus_on_files=1
+let g:nerdtree_tabs_startup_cd=1
 " }
 
 " Window size management {
@@ -275,10 +243,10 @@ nnoremap <F5> :GundoToggle<CR>
 " }
 
 " CtrlP {
-let g:ctrlp_custom_ignore = '\v[\/]\.(git|hg|svn)$'
+let g:ctrlp_custom_ignore='\v[\/]\.(git|hg|svn)$'
 if executable('ag')
   " Use ag in CtrlP for listing files. Lightning fast and respects .gitignore
-  let g:ctrlp_user_command = 'ag %s -l --nocolor -g ""'
+  let g:ctrlp_user_command='ag %s -l --nocolor -g ""'
 
   " ag is fast enough that CtrlP doesn't need to cache
   " let g:ctrlp_use_caching = 0
@@ -297,22 +265,22 @@ nnoremap <Leader>so :OpenSession<CR>
 " }
 
 " NeoComplete {
-let g:neocomplete#enable_at_startup = 1
-let g:neocomplete#enable_smart_case = 1
-let g:neocomplete#max_list = 10
-let g:neocomplete#auto_completion_start_length = 3
-let g:neocomplete#sources#syntax#min_keyword_length = 3
-let g:neocomplete#lock_buffer_name_pattern = '\*ku\*'
+let g:neocomplete#enable_at_startup=1
+let g:neocomplete#enable_smart_case=1
+let g:neocomplete#max_list=10
+let g:neocomplete#auto_completion_start_length=3
+let g:neocomplete#sources#syntax#min_keyword_length=3
+let g:neocomplete#lock_buffer_name_pattern='\*ku\*'
 " This makes sure we use neocomplete completefunc instead of
 " the one in rails.vim, otherwise this plugin will crap out
 " So SKWP says, stolen from him
-let g:neocomplete#force_overwrite_completefunc = 1
+let g:neocomplete#force_overwrite_completefunc=1
 
 " Define keyword.
 if !exists('g:neocomplete#keyword_patterns')
-    let g:neocomplete#keyword_patterns = {}
+    let g:neocomplete#keyword_patterns={}
 endif
-let g:neocomplete#keyword_patterns['default'] = '\h\w*'
+let g:neocomplete#keyword_patterns['default']='\h\w*'
 
 " Enable omni completion.
 autocmd FileType css setlocal omnifunc=csscomplete#CompleteCSS
@@ -340,10 +308,40 @@ inoremap <expr><BS> neocomplete#smart_close_popup()."\<C-h>"
 
 " Enable heavy omni completion.
 if !exists('g:neocomplete#sources#omni#input_patterns')
-  let g:neocomplete#sources#omni#input_patterns = {}
+  let g:neocomplete#sources#omni#input_patterns={}
 endif
-let g:neocomplete#sources#omni#input_patterns.ruby = '[^. *\t]\.\w*\|\h\w*::'
+let g:neocomplete#sources#omni#input_patterns.ruby='[^. *\t]\.\w*\|\h\w*::'
 " For perlomni.vim setting.
 " https://github.com/c9s/perlomni.vim
-let g:neocomplete#sources#omni#input_patterns.perl = '\h\w*->\h\w*\|\h\w*::'
+let g:neocomplete#sources#omni#input_patterns.perl='\h\w*->\h\w*\|\h\w*::'
+" }
+
+" Some Visuals tweeking {
+" Disable the scrollbars (NERDTree)
+set guioptions-=r
+set guioptions-=L
+" Disable the macvim toolbar
+set guioptions-=T
+" }
+
+" Vim AirLine {
+let g:airline_theme='bubblegumlight'
+
+if !exists('g:airline_symbols')
+  let g:airline_symbols = {}
+endif
+
+" unicode symbols
+let g:airline_left_sep = '⮀'
+let g:airline_left_alt_sep = '⮁'
+let g:airline_right_sep = '⮂'
+let g:airline_right_alt_sep = '⮃'
+let g:airline_symbols.linenr = '␊'
+let g:airline_symbols.linenr = '␤'
+let g:airline_symbols.linenr = '¶'
+let g:airline_symbols.branch = '⎇'
+let g:airline_symbols.paste = 'ρ'
+let g:airline_symbols.paste = 'Þ'
+let g:airline_symbols.paste = '∥'
+let g:airline_symbols.whitespace = 'Ξ'
 " }
