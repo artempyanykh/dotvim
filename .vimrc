@@ -11,7 +11,7 @@ call vundle#rc()
 Bundle 'gmarik/vundle'
 
 " Better than grep recursive search
-Bundle 'epmatsw/ag.vim'
+Bundle 'rking/ag.vim'
 " Comment lines with gcc
 Bundle 'tpope/vim-commentary'
 " Change text inside surrounding stuff
@@ -67,6 +67,9 @@ Bundle 'kchmck/vim-coffee-script'
 Bundle 'tpope/vim-git'
 Bundle 'tpope/vim-fugitive'
 Bundle 'xolox/vim-misc'
+
+" Terminal in vim
+Bundle 'trammell/vim-conque'
 
 " Common config {
 " Indentind and stuff
@@ -126,6 +129,18 @@ set ignorecase " ignore case in search
 set smartcase " until search pattern have at least one capital letter
 set number " show line numbers
 set timeoutlen=500
+set splitright " split vertical windows right to the current windows
+set splitbelow " split horizontal windows below to the current windows
+" switch between tabs with cmd+1, cmd+2,..."
+nmap <D-1> 1gt
+nmap <D-2> 2gt
+nmap <D-3> 3gt
+nmap <D-4> 4gt
+nmap <D-5> 5gt
+nmap <D-6> 6gt
+nmap <D-7> 7gt
+nmap <D-8> 8gt
+nmap <D-9> 9gt
 " Disable output and VCS files
 set wildignore+=*.o,*.out,*.obj,.git,*.rbc,*.rbo,*.class,.svn,*.gem
 " Disable archive files
@@ -344,4 +359,14 @@ let g:airline_symbols.paste = 'ρ'
 let g:airline_symbols.paste = 'Þ'
 let g:airline_symbols.paste = '∥'
 let g:airline_symbols.whitespace = 'Ξ'
+" }
+
+" ConqueTerm {
+let g:ConqueTerm_InsertOnEnter = 0
+let g:ConqueTerm_CWInsert = 1
+let g:ConqueTerm_Color = 1
+let g:ConqueTerm_ReadUnfocused = 1 " update conqueterm buffer while we're not looking (for running tests)
+nnoremap <silent> <Leader>qc :ConqueTermVSplit bundle exec rails c<CR>
+nnoremap <silent> <Leader>qp :ConqueTermVSplit pry<CR>
+nnoremap <silent> <Leader>qb :ConqueTermVSplit bash<CR>
 " }
