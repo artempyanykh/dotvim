@@ -11,7 +11,7 @@ call vundle#rc()
 Bundle 'gmarik/vundle'
 
 " Better than grep recursive search
-Bundle 'rking/ag.vim'
+Bundle 'epmatsw/ag.vim'
 " Comment lines with gcc
 Bundle 'tpope/vim-commentary'
 " Change text inside surrounding stuff
@@ -49,6 +49,8 @@ Bundle 'Raimondi/delimitMate'
 Bundle 'xolox/vim-session'
 " Better status line
 Bundle 'bling/vim-airline'
+" Smooth scrolling
+Bundle 'terryma/vim-smooth-scroll'
 
 " Ruby
 Bundle 'vim-ruby/vim-ruby'
@@ -184,7 +186,7 @@ imap <S-CR> <CR><CR>end<Esc>-cc
 " Remap leader to ,
 let mapleader=","
 " Exit INSERT mode on jj
-inoremap jj <ESC>
+inoremap jk <ESC>
 nnoremap<silent> <Leader>h :nohls<CR>
 
 nnoremap ; :
@@ -419,4 +421,11 @@ nnoremap <Leader>sif :execute RspecWithConqueCommand('no', 0, 1)<CR>
 nnoremap <Leader>sl :execute RspecWithConqueCommand('s', 1, 1)<CR>
 nnoremap <Leader>svl :execute RspecWithConqueCommand('v', 1, 1)<CR>
 nnoremap <Leader>sil :execute RspecWithConqueCommand('no', 1, 1)<CR>
+" }
+
+" Smooth scrolling
+noremap <silent> <c-u> :call smooth_scroll#up(&scroll, 20, 2)<CR>
+noremap <silent> <c-d> :call smooth_scroll#down(&scroll, 20, 2)<CR>
+noremap <silent> <c-b> :call smooth_scroll#up(&scroll*2, 20, 4)<CR>
+noremap <silent> <c-f> :call smooth_scroll#down(&scroll*2, 20, 4)<CR>
 " }
