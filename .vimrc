@@ -11,7 +11,7 @@ call vundle#rc()
 Bundle 'gmarik/vundle'
 
 " Better than grep recursive search
-Bundle 'epmatsw/ag.vim'
+Bundle 'rking/ag.vim'
 " Comment lines with gcc
 Bundle 'tpope/vim-commentary'
 " Change text inside surrounding stuff
@@ -28,7 +28,7 @@ Bundle 'tsaleh/vim-matchit'
 " Buffers
 Bundle 'jeetsukumaran/vim-buffergator'
 " Multiple cursors
-Bundle 'terryma/vim-multiple-cursors'
+" Bundle 'terryma/vim-multiple-cursors'
 " Check syntax
 Bundle 'scrooloose/syntastic'
 " Project tree
@@ -98,6 +98,7 @@ set statusline+=%-14.(%l,%c%V%)\ %<%P        " offset
 set ruler " show the cursor position all the time
 set showcmd " display incomplete commands
 set wildmenu
+set cc=80,120
 
 " Editor
 if !&scrolloff
@@ -215,11 +216,11 @@ endif
 " }
 
 " Multiple cursors {
-let g:multi_cursor_use_default_mapping=0
-let g:multi_cursor_next_key='<C-n>'
-let g:multi_cursor_prev_key='<C-p>'
-let g:multi_cursor_skip_key='<C-x>'
-let g:multi_cursor_quit_key='<Esc>'
+" let g:multi_cursor_use_default_mapping=0
+" let g:multi_cursor_next_key='<C-n>'
+" let g:multi_cursor_prev_key='<C-p>'
+" let g:multi_cursor_skip_key='<C-x>'
+" let g:multi_cursor_quit_key='<Esc>'
 " }
 
 " Buffergator {
@@ -368,15 +369,15 @@ let g:ConqueTerm_InsertOnEnter = 0
 let g:ConqueTerm_CWInsert = 1
 let g:ConqueTerm_Color = 1
 let g:ConqueTerm_ReadUnfocused = 1 " update conqueterm buffer while we're not looking (for running tests)
-nnoremap <silent> <Leader>qic :ConqueTerm bundle exec rails c<CR>
-nnoremap <silent> <Leader>qip :ConqueTerm pry<CR>
-nnoremap <silent> <Leader>qib :ConqueTerm bash<CR>
 nnoremap <silent> <Leader>qc :ConqueTermSplit bundle exec rails c<CR>
 nnoremap <silent> <Leader>qp :ConqueTermSplit pry<CR>
 nnoremap <silent> <Leader>qb :ConqueTermSplit bash<CR>
 nnoremap <silent> <Leader>qvc :ConqueTermVSplit bundle exec rails c<CR>
 nnoremap <silent> <Leader>qvp :ConqueTermVSplit pry<CR>
 nnoremap <silent> <Leader>qvb :ConqueTermVSplit bash<CR>
+nnoremap <silent> <Leader>qic :ConqueTerm bundle exec rails c<CR>
+nnoremap <silent> <Leader>qip :ConqueTerm pry<CR>
+nnoremap <silent> <Leader>qib :ConqueTerm bash<CR>
 
 function! RspecWithConqueCommand(splitType, runLine, useSpring)
   let executable="rspec"
