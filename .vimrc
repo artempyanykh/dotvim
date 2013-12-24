@@ -116,7 +116,6 @@ endif
 set list
 set autoread
 
-set nobackup " do not keep a backup file, use versions instead
 set history=1000 " keep 50 lines of command line history
 set incsearch " do incremental searching
 syntax on
@@ -155,8 +154,10 @@ set wildignore+=*/tmp/cache/assets/*/sprockets/*,*/tmp/cache/assets/*/sass/*
 " Disable temp and backup files
 set wildignore+=*.swp,*~,._*
 
+set nobackup " do not keep a backup file, use versions instead
+set noswapfile " do not use swapfile
 set backupdir^=~/.vim/_backup//    " where to put backup files.
-set directory^=~/.vim/_temp//      " where to put swap files.
+set directory^=~/.vim/_swap//      " where to put swap files.
 " }
 
 " Visual style {
