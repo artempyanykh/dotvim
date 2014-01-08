@@ -134,15 +134,24 @@ set timeoutlen=500
 set splitright " split vertical windows right to the current windows
 set splitbelow " split horizontal windows below to the current windows
 " switch between tabs with cmd+1, cmd+2,..."
-nmap <D-1> 1gt
-nmap <D-2> 2gt
-nmap <D-3> 3gt
-nmap <D-4> 4gt
-nmap <D-5> 5gt
-nmap <D-6> 6gt
-nmap <D-7> 7gt
-nmap <D-8> 8gt
-nmap <D-9> 9gt
+nnoremap <D-1> <ESC>1gt
+nnoremap <D-2> <ESC>2gt
+nnoremap <D-3> <ESC>3gt
+nnoremap <D-4> <ESC>4gt
+nnoremap <D-5> <ESC>5gt
+nnoremap <D-6> <ESC>6gt
+nnoremap <D-7> <ESC>7gt
+nnoremap <D-8> <ESC>8gt
+nnoremap <D-9> <ESC>9gt
+inoremap <D-1> <ESC>1gt
+inoremap <D-2> <ESC>2gt
+inoremap <D-3> <ESC>3gt
+inoremap <D-4> <ESC>4gt
+inoremap <D-5> <ESC>5gt
+inoremap <D-6> <ESC>6gt
+inoremap <D-7> <ESC>7gt
+inoremap <D-8> <ESC>8gt
+inoremap <D-9> <ESC>9gt
 " Disable output and VCS files
 set wildignore+=*.o,*.out,*.obj,.git,*.rbc,*.rbo,*.class,.svn,*.gem
 " Disable archive files
@@ -179,6 +188,7 @@ augroup END
 
 " autocmd FileType ruby,eruby setlocal foldmethod=indent
 " autocmd FileType ruby,eruby normal zR
+autocmd FileType conque_term set listchars=tab:>\ ,
 " }
 
 " Custom mappings {
@@ -370,6 +380,7 @@ let g:ConqueTerm_InsertOnEnter = 0
 let g:ConqueTerm_CWInsert = 1
 let g:ConqueTerm_Color = 1
 let g:ConqueTerm_ReadUnfocused = 1 " update conqueterm buffer while we're not looking (for running tests)
+let g:ConqueTerm_TERM = 'xterm'
 nnoremap <silent> <Leader>qc :ConqueTermSplit bundle exec rails c<CR>
 nnoremap <silent> <Leader>qp :ConqueTermSplit pry<CR>
 nnoremap <silent> <Leader>qb :ConqueTermSplit bash<CR>
@@ -381,7 +392,7 @@ nnoremap <silent> <Leader>qip :ConqueTerm pry<CR>
 nnoremap <silent> <Leader>qib :ConqueTerm bash<CR>
 
 function! RspecWithConqueCommand(splitType, runLine, useSpring)
-  let executable="rspec"
+  let executable="bundle exec rspec"
   if a:useSpring
     let executable="spring " . executable
   endif
