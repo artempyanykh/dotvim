@@ -186,9 +186,7 @@ autocmd BufReadPost *
       \ endif
 augroup END
 
-" autocmd FileType ruby,eruby setlocal foldmethod=indent
-" autocmd FileType ruby,eruby normal zR
-autocmd FileType conque_term set listchars=tab:>\ ,
+autocmd FileType conque_term setlocal nolist
 " }
 
 " Custom mappings {
