@@ -209,6 +209,9 @@ cnoremap %% <C-R>=expand('%:h').'/'<cr>
 " should use ; to enter command mode because of the mapping right above
 map <leader>e ;edit %%
 map <leader>v ;view %%
+nnoremap <Leader>tn :tabnext<CR>
+nnoremap <Leader>tp :tabprevious<CR>
+nnoremap <Leader>tc :tabnew<CR>
 " }
 
 " Custom functions {
@@ -238,7 +241,7 @@ nnoremap<silent> <Leader>b :BuffergatorToggle<CR>
 " }
 
 " NERDTree + Tabs {
-nnoremap<silent> <Leader>t :NERDTreeTabsToggle<CR>
+nnoremap<silent> <Leader>tt :NERDTreeTabsToggle<CR>
 " NERDTree UI "
 let NERDTreeMinimalUI=1
 let NERDTreeDirArrows=1
@@ -390,7 +393,7 @@ nnoremap <silent> <Leader>qip :ConqueTerm pry<CR>
 nnoremap <silent> <Leader>qib :ConqueTerm bash<CR>
 
 function! RspecWithConqueCommand(splitType, runLine, useSpring)
-  let executable="bundle exec rspec"
+  let executable="rspec"
   if a:useSpring
     let executable="spring " . executable
   endif
@@ -439,4 +442,9 @@ noremap <silent> <c-u> :call smooth_scroll#up(&scroll, 20, 2)<CR>
 noremap <silent> <c-d> :call smooth_scroll#down(&scroll, 20, 2)<CR>
 noremap <silent> <c-b> :call smooth_scroll#up(&scroll*2, 20, 4)<CR>
 noremap <silent> <c-f> :call smooth_scroll#down(&scroll*2, 20, 4)<CR>
+" }
+
+" Ruby-specific mappings
+nnoremap <Leader>iv i<%= %><ESC>hhi @
+nnoremap <Leader>av a<%= %><ESC>hhi @
 " }
