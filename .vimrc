@@ -24,7 +24,7 @@ Bundle 'kien/ctrlp.vim'
 " Trigger awesome motion with <Leader><Leader>
 Bundle 'Lokaltog/vim-easymotion'
 " Better matching
-Bundle 'tsaleh/vim-matchit'
+Bundle 'vim-scripts/matchit.zip'
 " Buffers
 Bundle 'jeetsukumaran/vim-buffergator'
 " Multiple cursors
