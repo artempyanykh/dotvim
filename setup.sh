@@ -4,8 +4,8 @@ echo "Applying VIM settings"
 cd $DOTFILESDIR
 [[ -d $HOME/.vim ]] && mv -f $HOME/.vim $HOME/.vim.old
 ln -nsfv "$DOTFILESDIR" "$HOME/.vim"
-ln -nsfv "$DOTFILESDIR/.vimrc" "$HOME/.vimrc"
-ln -nsfv "$DOTFILESDIR/.gvimrc" "$HOME/.gvimrc"
+ln -nsfv "$DOTFILESDIR/vimrc" "$HOME/.vimrc"
+ln -nsfv "$DOTFILESDIR/gvimrc" "$HOME/.gvimrc"
 
 echo "Acquiring Vundle"
 git submodule init
