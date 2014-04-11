@@ -82,22 +82,3 @@ if !exists(":DiffOrig")
 endif
 " }
 
-" Window size management {
-nnoremap <silent> <Leader>= :exe "resize " . (winheight(0) * 3/2)<CR>
-nnoremap <silent> <Leader>- :exe "resize " . (winheight(0) * 2/3)<CR>
-nnoremap <silent> <Leader>. :exe "vertical resize +20"<CR>
-nnoremap <silent> <Leader>m :exe "vertical resize -20"<CR>
-nnoremap <silent> <Leader>> :exe "resize +10"<CR>
-nnoremap <silent> <Leader>< :exe "resize -10"<CR>
-" }
-
-" Smooth scrolling
-noremap <silent> <c-u> :call smooth_scroll#up(&scroll, 20, 2)<CR>
-noremap <silent> <c-d> :call smooth_scroll#down(&scroll, 20, 2)<CR>
-noremap <silent> <c-b> :call smooth_scroll#up(&scroll*2, 20, 4)<CR>
-noremap <silent> <c-f> :call smooth_scroll#down(&scroll*2, 20, 4)<CR>
-" }
-
-" Gundo {
-nnoremap <F5> :GundoToggle<CR>
-" }
