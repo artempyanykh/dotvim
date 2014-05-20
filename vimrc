@@ -19,7 +19,7 @@ set ttyfast
 set lazyredraw
 
 exe 'source ' . expand('~/.vim/settings/editor.vim')
-" exe 'source ' . expand('~/.vim/settings/frontend.vim')
+exe 'source ' . expand('~/.vim/settings/frontend.vim')
 exe 'source ' . expand('~/.vim/settings/git.vim')
 exe 'source ' . expand('~/.vim/settings/mappings.vim')
 exe 'source ' . expand('~/.vim/settings/misc.vim')
