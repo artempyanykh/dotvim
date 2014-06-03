@@ -1,3 +1,5 @@
+#!/bin/bash
+
 DOTFILESDIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
 
 echo "Applying VIM settings"
@@ -6,9 +8,9 @@ cd $DOTFILESDIR
 ln -nsfv "$DOTFILESDIR" "$HOME/.vim"
 ln -nsfv "$DOTFILESDIR/vimrc" "$HOME/.vimrc"
 if [[ "$(uname)" =~ Darwin ]]; then
-  ln -nsfv "$DOTFILESDIR/gvimrc_macosx" "$HOME/.gvimrc"
+  ln -nsfv "$DOTFILESDIR/macvimrc" "$HOME/.gvimrc"
 else
-  ln -nsfv "$DOTFILESDIR/gvimrc_ubuntu" "$HOME/.gvimrc"
+  ln -nsfv "$DOTFILESDIR/gvimrc" "$HOME/.gvimrc"
 fi
 
 echo "Acquiring Vundle"
