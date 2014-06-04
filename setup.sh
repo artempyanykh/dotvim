@@ -5,7 +5,11 @@ cd $DOTFILESDIR
 [[ -d $HOME/.vim ]] && mv -f $HOME/.vim $HOME/.vim.old
 ln -nsfv "$DOTFILESDIR" "$HOME/.vim"
 ln -nsfv "$DOTFILESDIR/vimrc" "$HOME/.vimrc"
-ln -nsfv "$DOTFILESDIR/gvimrc" "$HOME/.gvimrc"
+if [[ "$(uname)" =~ Darwin ]]; then
+  ln -nsfv "$DOTFILESDIR/gvimrc_macosx" "$HOME/.gvimrc"
+else
+  ln -nsfv "$DOTFILESDIR/gvimrc_ubuntu" "$HOME/.gvimrc"
+fi
 
 echo "Acquiring Vundle"
 git submodule init
