@@ -25,3 +25,13 @@ if [ -d $HOME/.vim/bundle/YouCompleteMe ]; then
   cd ~/.vim/bundle/YouCompleteMe
   ./install.sh
 fi
+
+echo "============================"
+echo "Adding fonts"
+echo "============================"
+if [[ $(uname) =~ Darwin ]]; then
+  cp -fvR "$DOTFILESDIR/fonts/" "$HOME/Library/Fonts/"
+else
+  mkdir -p "$HOME/.fonts/"
+  cp -fvR "$DOTFILESDIR/fonts"/ "$HOME/.fonts/"
+fi
