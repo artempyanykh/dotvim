@@ -12,6 +12,7 @@ if [[ "$(uname)" =~ Darwin ]]; then
 else
   ln -nsfv "$DOTFILESDIR/gvimrc" "$HOME/.gvimrc"
 fi
+ln -nsfv "$DOTFILESDIR/ideavimrc" "$HOME/.ideavimrc"
 
 echo "Acquiring Vundle"
 git submodule init

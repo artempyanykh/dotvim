@@ -1,0 +1,5 @@
+inoremap jk <ESC>
+nnoremap ; :
+nnoremap : ;
+vnoremap ; :
+vnoremap : ;
