@@ -31,8 +31,12 @@ echo "============================"
 echo "Adding fonts"
 echo "============================"
 if [[ $(uname) =~ Darwin ]]; then
-  cp -fvR "$DOTFILESDIR/fonts/" "$HOME/Library/Fonts/"
+  for file in "$DOTFILESDIR/fonts/"*; do
+    cp -fv "$file" "$HOME/Library/Fonts/"
+  done
 else
   mkdir -p "$HOME/.fonts/"
-  cp -fvR "$DOTFILESDIR/fonts"/ "$HOME/.fonts/"
+  for file in "$DOTFILESDIR/fonts/"*; do
+    cp -fv "$file" "$HOME/.fonts/"
+  done
 fi
