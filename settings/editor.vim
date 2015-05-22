@@ -23,7 +23,7 @@ endif
 set list
 set autoread
 
-set history=1000 " keep 50 lines of command line history
+set history=1000 " keep 100 lines of command line history
 set incsearch " do incremental searching
 syntax on
 set t_Co=256
@@ -40,6 +40,7 @@ set number " show line numbers
 set timeoutlen=500
 set splitright " split vertical windows right to the current windows
 set splitbelow " split horizontal windows below to the current windows
+set relativenumber
 
 
 " Autocmds
