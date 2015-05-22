@@ -38,8 +38,6 @@ cnoremap %% <C-R>=expand('%:h').'/'<cr>
 " should use ; to enter command mode because of the mapping right above
 map <leader>e ;edit %%
 map <leader>v ;view %%
-nnoremap <Leader>tn :tabnext<CR>
-nnoremap <Leader>tp :tabprevious<CR>
 nnoremap <Leader>tc :tabnew<CR>
 
 " Rails-specific mappings

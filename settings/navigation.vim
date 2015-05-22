@@ -1,13 +1,3 @@
-" Fuzzy search on project
-Bundle 'kien/ctrlp.vim'
-" Project tree
-Bundle 'scrooloose/nerdtree.git'
-Bundle 'jistr/vim-nerdtree-tabs'
-" Buffers
-Bundle 'jeetsukumaran/vim-buffergator'
-" Better than grep recursive search
-Bundle 'rking/ag.vim'
-
 " Buffergator {
 let g:buffergator_suppress_keymaps=1
 nnoremap<silent> <Leader>b :BuffergatorToggle<CR>

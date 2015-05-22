@@ -1,22 +1,3 @@
-" Comment lines with gcc
-Bundle 'tpope/vim-commentary'
-" Change text inside surrounding stuff
-Bundle 'tpope/vim-surround'
-" Trigger awesome motion with <Leader><Leader>
-Bundle 'Lokaltog/vim-easymotion'
-" Better matching
-Bundle 'vim-scripts/matchit.zip'
-" Check syntax
-Bundle 'scrooloose/syntastic'
-" Better search
-Bundle 'henrik/vim-indexed-search'
-" Fancy undo
-Bundle 'sjl/gundo.vim'
-" Auto-complete paired characters (, {, etc.
-Bundle 'Raimondi/delimitMate'
-" Smooth scrolling
-Bundle 'terryma/vim-smooth-scroll'
-
 " Common config {
 " Indentind and stuff
 set autoindent

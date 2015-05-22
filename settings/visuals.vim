@@ -1,8 +1,3 @@
-" Add color schemes
-Bundle 'flazz/vim-colorschemes'
-" Better status line
-Bundle 'bling/vim-airline'
-
 set laststatus=2 " always show status line
 set statusline=   " clear the statusline for when vimrc is reloaded
 set statusline+=%-3.3n\                      " buffer number
