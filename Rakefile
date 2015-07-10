@@ -22,7 +22,7 @@ task :copy_vim_settings do
 end
 
 task :setup_fonts do
-  dest_dir = under_user_dir(".fonts")
+  dest_dir = under_user_dir("Library/Fonts")
   mkdir_p dest_dir
 
   fonts = Dir.glob(under_current_dir "fonts/*.otf")
